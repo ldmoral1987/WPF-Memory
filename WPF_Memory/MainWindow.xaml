@@ -1,0 +1,86 @@
+﻿<Window x:Class="WPF_Memory.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Memory"
+        mc:Ignorable="d"
+        Title="WPF_Memory" Height="450" Width="400" Icon="resources/bulb.png" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Cursor="Hand">
+    <Grid>
+        <Grid.Resources>
+            <Style x:Key="RoundCorner" TargetType="{x:Type Button}">
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Padding" Value="1"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Grid x:Name="grid">
+                                <Border x:Name="border" CornerRadius="8" BorderBrush="Black" BorderThickness="2">
+                                    <Border.Background>
+                                        <SolidColorBrush Color="LightGray"></SolidColorBrush>
+                                    </Border.Background>
+                                    <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          TextElement.FontWeight="Bold">
+                                    </ContentPresenter>
+                                </Border>
+
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" TargetName="border">
+                                        <Setter.Value>
+                                            <SolidColorBrush Color="LightBlue"></SolidColorBrush>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="BorderBrush" TargetName="border" Value="#FF33962B"/>
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Opacity" TargetName="grid" Value="0.25"/>
+                                </Trigger>
+
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image Source="resources/click.png" Width="25" HorizontalAlignment="Right" Margin="0 0 5 0" Grid.Column="0" Grid.Row="0"></Image>
+        <TextBlock Name="contadorClicks" Text="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5 0 0 0" Grid.Column="1" Grid.Row="0" FontSize="22"></TextBlock>
+        <Image Source="resources/clock.png" Width="25" HorizontalAlignment="Right" Margin="0 0 5 0" Grid.Column="2" Grid.Row="0"></Image>
+        <TextBlock Name="contadorTiempo" Text="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5 0 0 0" Grid.Column="3" Grid.Row="0" FontSize="22"></TextBlock>
+        <Button Name="boton0" Margin="8 8 4 4" Grid.Column="0" Grid.Row="1" Style="{DynamicResource RoundCorner}" Click="buttonClick"></Button>
+        <Button Name="boton1" Margin="4 8 4 4" Grid.Column="1" Grid.Row="1" Style="{DynamicResource RoundCorner}" Click="buttonClick"></Button>
+        <Button Name="boton2" Margin="4 8 4 4" Grid.Column="2" Grid.Row="1" Style="{DynamicResource RoundCorner}" Click="buttonClick"></Button>
+        <Button Name="boton3" Margin="4 8 8 4" Grid.Column="3" Grid.Row="1" Style="{DynamicResource RoundCorner}" Click="buttonClick"></Button>
+        <Button Name="boton4" Margin="8 4 4 4" Grid.Column="0" Grid.Row="2" Style="{DynamicResource RoundCorner}" Click="buttonClick"></Button>
+        <Button Name="boton5" Margin="4 4 4 4" Grid.Column="1" Grid.Row="2" Style="{DynamicResource RoundCorner}" Click="buttonClick"></Button>
+        <Button Name="boton6" Margin="4 4 4 4" Grid.Column="2" Grid.Row="2" Style="{DynamicResource RoundCorner}" Click="buttonClick"></Button>
+        <Button Name="boton7" Margin="4 4 8 4" Grid.Column="3" Grid.Row="2" Style="{DynamicResource RoundCorner}" Click="buttonClick"></Button>
+        <Button Name="boton8" Margin="8 4 4 4" Grid.Column="0" Grid.Row="3" Style="{DynamicResource RoundCorner}" Click="buttonClick"></Button>
+        <Button Name="boton9" Margin="4 4 4 4" Grid.Column="1" Grid.Row="3" Style="{DynamicResource RoundCorner}" Click="buttonClick"></Button>
+        <Button Name="boton10" Margin="4 4 4 4" Grid.Column="2" Grid.Row="3" Style="{DynamicResource RoundCorner}" Click="buttonClick"></Button>
+        <Button Name="boton11" Margin="4 4 8 4" Grid.Column="3" Grid.Row="3" Style="{DynamicResource RoundCorner}" Click="buttonClick"></Button>
+        <Button Name="boton12" Margin="8 4 4 8" Grid.Column="0" Grid.Row="4" Style="{DynamicResource RoundCorner}" Click="buttonClick"></Button>
+        <Button Name="boton13" Margin="4 4 4 8" Grid.Column="1" Grid.Row="4" Style="{DynamicResource RoundCorner}" Click="buttonClick"></Button>
+        <Button Name="boton14" Margin="4 4 4 8" Grid.Column="2" Grid.Row="4" Style="{DynamicResource RoundCorner}" Click="buttonClick"></Button>
+        <Button Name="boton15" Margin="4 4 8 8" Grid.Column="3" Grid.Row="4" Style="{DynamicResource RoundCorner}" Click="buttonClick"></Button>
+    </Grid>
+</Window>
